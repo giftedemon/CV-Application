@@ -1,5 +1,6 @@
 import Icon from "@mdi/react";
 import { mdiTrashCanOutline } from "@mdi/js";
+import "../styles/delete.css";
 
 function DeleteForm({ handleClick, id }) {
     return (

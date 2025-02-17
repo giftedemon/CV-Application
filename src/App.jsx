@@ -2,6 +2,7 @@ import { useState } from "react";
 import Personal from "./components/Personal";
 import Education from "./components/Education";
 import Job from "./components/Job";
+import CVPaper from "./components/CVPaper";
 
 function App() {
     const [personalInfo, setPersonalInfo] = useState({
@@ -60,20 +61,29 @@ function App() {
     return (
         <main>
             <h1>CV Application</h1>
-            <div className="CV">
-                <Personal handleChange={handlePersonalInfo} value={personalInfo}></Personal>
-                <Education
-                    handleChange={handleEducationInfo}
-                    value={educationsInfo}
-                    addEducationSection={addEducationSection}
-                    deleteEducationSection={deleteEducationSection}
-                ></Education>
-                <Job
-                    handleChange={handleJobInfo}
-                    value={jobsInfo}
-                    addJobSection={addJobSection}
-                    deleteJobSection={deleteJobSection}
-                ></Job>
+            <div className="cv">
+                <div className="cv-maker">
+                    <Personal handleChange={handlePersonalInfo} value={personalInfo}></Personal>
+                    <Education
+                        handleChange={handleEducationInfo}
+                        value={educationsInfo}
+                        addEducationSection={addEducationSection}
+                        deleteEducationSection={deleteEducationSection}
+                    ></Education>
+                    <Job
+                        handleChange={handleJobInfo}
+                        value={jobsInfo}
+                        addJobSection={addJobSection}
+                        deleteJobSection={deleteJobSection}
+                    ></Job>
+                </div>
+                <div className="cv-paper">
+                    <CVPaper
+                        educationsInfo={educationsInfo}
+                        jobsInfo={jobsInfo}
+                        personalInfo={personalInfo}
+                    ></CVPaper>
+                </div>
             </div>
         </main>
     );

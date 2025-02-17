@@ -1,6 +1,87 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 :root {
-    --label-size: 1.5rem;
+    --title-size: 1.7rem;
+    --label-size: 1.4rem;
     --input-size: 1.2rem;
+    --button-size: 1.4rem;
 }
 
 body {
@@ -8,23 +89,40 @@ body {
 }
 
 main {
-    max-width: 800px;
+    max-width: 1500px;
     margin: 0 auto;
 
     padding: 1rem;
+    display: grid;
+    gap: 3rem;
 }
 
-form {
+button {
+    cursor: pointer;
+    width: fit-content;
+}
+
+h2 {
+    text-align: left;
+    color: black;
+    opacity: 0.9;
+}
+
+.cv-maker form {
+    /* max-width: 800px; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     border-radius: 5px;
+    gap: 0.75rem;
     padding: 1rem;
     border: 1px solid black;
 }
 
-label {
+.cv label {
     font-size: var(--label-size);
 }
 
-p {
+.cv form p {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -33,12 +131,49 @@ p {
     gap: 0.3rem;
 }
 
-input {
-    padding: 0.5rem 0.4rem;
+.cv form input {
+    max-width: 300px;
+    padding: 0.3rem;
     font-size: var(--input-size);
-    width: inherit;
 }
 
-button {
-    cursor: pointer;
+.cv-maker {
+    display: grid;
+    gap: 2.5rem;
+    flex: 10%;
+}
+
+.cv-maker h2 {
+    font-size: var(--title-size);
+}
+
+.cv-maker div {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.cv {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.cv .cv-maker {
+    flex: 50%;
+}
+
+.cv .cv-paper {
+    flex: 50%;
+}
+
+@media (max-width: 1100px) {
+    :root {
+        --title-size: 1.5rem;
+        --label-size: 1.1rem;
+        --input-size: 1.1rem;
+        --button-size: 1rem;
+    }
+    .cv {
+        flex-wrap: wrap;
+    }
 }
