@@ -2,7 +2,7 @@ import DeleteForm from "./DeleteForm";
 
 function JobForm({ value, handleChange, deleteJobSection, id }) {
     return (
-        <form action="#" method="post" className="education-form">
+        <form action="#" method="post" className="added-form">
             <p>
                 <label htmlFor="companyName">Company Name:</label>
                 <input

@@ -2,7 +2,7 @@ import DeleteForm from "./DeleteForm";
 
 function EducationForm({ handleChange, value, id, deleteEducationSection }) {
     return (
-        <form action="#" method="post" className="education-form">
+        <form action="#" method="post" className="added-form">
             <p>
                 <label htmlFor="schoolName">School Name:</label>
                 <input

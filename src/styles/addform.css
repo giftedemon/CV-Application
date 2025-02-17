@@ -21,3 +21,7 @@
 .addButton span {
     cursor: pointer;
 }
+
+.added-form {
+    position: relative;
+}

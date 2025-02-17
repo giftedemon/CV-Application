@@ -1,5 +1,4 @@
 import EducationForm from "./EducationForm";
-import "../styles/education.css";
 import AddForm from "./AddForm";
 
 function Education({ handleChange, addEducationSection, value, deleteEducationSection }) {
